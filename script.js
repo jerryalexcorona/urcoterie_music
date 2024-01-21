@@ -144,46 +144,42 @@ function shareVideo() {
     });
 
     // Function to create a post element with a given video ID and comment
-    function createPost(videoId, comment) {
-        // Create a new div element
-        let post = document.createElement("div");
-        post.className = "post";
-        // Set the data attribute to store the video ID
-        post.dataset.videoId = videoId;
-        // Set the inner HTML to include the user name, comment, player, share button, comment input, and comment button
-        post.innerHTML = `<p><strong>User:</strong> shared a video</p>
-                     <p class="comment"><strong>Comment:</strong> ${comment}</p>
-                     <div id="player-${videoId}"></div>
-                     <div class="button-row">
-                        <button class="share-button" onclick="sharePost('${videoId}', '${comment}')">Share</button>
-                        <input type="text" class="comment-input" placeholder="Write a comment" />
-                        <button class="comment-button" onclick="commentPost('${videoId}')">Comment</button>
-                     </div>`;
+function createPost(videoId, comment) {
+    // Create a new div element
+    let post = document.createElement("div");
+    post.className = "post";
+    // Set the data attribute to store the video ID
+    post.dataset.videoId = videoId;
+    // Set the inner HTML to include the user name, comment, player, share button, comment input, and comment button
+    post.innerHTML = `<p><strong>User:</strong> shared a video</p><p class="comment"><strong>Comment:</strong> ${comment}</p><div id="player-${videoId}"></div>
+                      <button class="share-button" onclick="sharePost('${videoId}', '${comment}')">Share</button>
+                      <input type="text" class="comment-input" placeholder="Write a comment" />
+                      <button class="comment-button" onclick="commentPost('${videoId}')">Comment</button>`;
 
-        // Load YouTube Player API script
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName("script")[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    // Load YouTube Player API script
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // Initialize YouTube player when API is ready
-        window.onYouTubeIframeAPIReady = function () {
-            const player = new YT.Player(`player-${videoId}`, {
-                height: "315",
-                width: "560",
-                videoId: videoId,
-                events: {
-                    onError: function (event) {
-                        const errorCode = event.data;
-                        handlePlayerError(`player-${videoId}`, errorCode);
-                    },
+    // Initialize YouTube player when API is ready
+    window.onYouTubeIframeAPIReady = function () {
+        const player = new YT.Player(`player-${videoId}`, {
+            height: "315",
+            width: "560",
+            videoId: videoId,
+            events: {
+                onError: function (event) {
+                    const errorCode = event.data;
+                    handlePlayerError(`player-${videoId}`, errorCode);
                 },
-            });
-        };
+            },
+        });
+    };
 
-        // Return the post element
-        return post;
-    }
+    // Return the post element
+    return post;
+}
 
     // Function to share a post
     function sharePost(videoId, comment) {
