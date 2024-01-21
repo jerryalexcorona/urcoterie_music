@@ -163,7 +163,7 @@ function createPost(videoId, comment) {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     // Initialize YouTube player when API is ready
-    window.onYouTubeIframeAPIReady = function () {
+    function onYouTubeIframeAPIReady() {
         const player = new YT.Player(`player-${videoId}`, {
             height: "315",
             width: "560",
@@ -175,12 +175,20 @@ function createPost(videoId, comment) {
                 },
             },
         });
-    };
+    }
+
+    // Check if the API script is already loaded
+    if (typeof YT !== "undefined" && YT.loaded) {
+        // API is already loaded, call the function directly
+        onYouTubeIframeAPIReady();
+    } else {
+        // API is not yet loaded, set the function as a callback
+        window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+    }
 
     // Return the post element
     return post;
 }
-
     // Function to share a post
     function sharePost(videoId, comment) {
         // Implement share functionality
