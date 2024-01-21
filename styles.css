@@ -1,0 +1,155 @@
+/* Use a custom font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+/* Set the font and background color for the body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the width and margin for the feed container */
+#feed {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Style the post element with rounded corners, box shadow, and white background */
+.post {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style the user name and comment with different font weights and colors */
+.post p {
+    margin: 0;
+    padding: 0;
+}
+
+.post p strong {
+    font-weight: 500;
+    color: #385898;
+}
+
+.post p:last-child {
+    font-weight: 300;
+    color: #444;
+    margin-top: 5px;
+}
+
+/* Style the player element with a border and some margin */
+.post div {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* Style the share form with a white background and a border */
+#shareForm {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+/* Style the textarea with a border and some padding */
+textarea {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    resize: none;
+}
+
+/* Style the button with a gradient background, rounded corners, and a box shadow */
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* Use a linear gradient for the background color */
+    background: linear-gradient(to right, #42a5f5, #2196f3);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Change the background color on hover */
+button:hover {
+    background: linear-gradient(to right, #2196f3, #1e88e5);
+}
+
+/* Style the share button with a gradient background, rounded corners, and a box shadow */
+.share-button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* Use a linear gradient for the background color */
+    background: linear-gradient(to right, #42a5f5, #2196f3);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Change the background color on hover */
+.share-button:hover {
+    background: linear-gradient(to right, #2196f3, #1e88e5);
+}
+
+/* Style the comment input */
+.comment-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+/* Style the comment button with a blue background, rounded corners, and a box shadow */
+.comment-button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #2196f3;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Change the background color on hover */
+.comment-button:hover {
+    background-color: #1e88e5;
+}
+
+/* Add styling for the button row */
+.post .button-row {
+    display: flex;
+    align-items: center;
+}
+
+/* Style the comment and share buttons */
+.comment-button,
+.share-button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-button {
+    background-color: #2196f3;
+    color: white;
+}
+
+.share-button {
+    background: linear-gradient(to right, #42a5f5, #2196f3);
+    color: white;
+}
+
+/* Change the background color on hover */
+.comment-button:hover,
+.share-button:hover {
+    background: linear-gradient(to right, #1e88e5, #1976d2);
+}
